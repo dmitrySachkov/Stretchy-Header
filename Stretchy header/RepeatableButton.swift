@@ -9,6 +9,7 @@ import SwiftUI
 
 struct RepeatableButton: View {
     
+    @Environment(\.colorScheme) var colorScheme
     @State private var count = 0
     @State private var buttonFrames: [ButtonFrame] = []
     
@@ -48,7 +49,7 @@ extension RepeatableButton {
         Text("\(count)")
             .fontWeight(.bold)
             .frame(width: 44, height: 44)
-            .background(.white.shadow(.drop(color: .black.opacity(0.15), radius: 5)),
+            .background((colorScheme == .dark ? Color.gray.opacity(0.2) : Color.white).shadow(.drop(color: (colorScheme == .dark ? Color.black.opacity(0.2) : Color.white).opacity(0.15), radius: 5)),
                         in: .rect(cornerRadius: 10))
             .overlay {
                 ForEach(buttonFrames) { brFrame in

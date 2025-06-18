@@ -72,12 +72,12 @@ extension View {
             let currentSize = geometry.size
             let screenBounds = UIScreen.main.bounds
             
-            // Вычисляем коэффициент масштабирования для заполнения экрана
+            // Calculate the scaling factor to fill the screen.
             let scaleX = screenBounds.width / currentSize.width
             let scaleY = screenBounds.height / currentSize.height
             let maxScale = max(scaleX, scaleY)
             
-            // Используем больший коэффициент для полного покрытия экрана
+            // Use the larger scaling factor to fully cover the screen.
             let targetScale = isHide ? maxScale : 1.0
             
             return effect
